@@ -1,11 +1,52 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="main.css">
-  <script src="bundle.js" async></script>
-</head>
-<body>
-  <h1 data-controller="example"></h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <script src="bundle.js" async></script>
+  </head>
+  <body>
+    <div>
+      <form for="user"
+	    data-controller="signup-form"
+	    data-action="submit->signup-form#submitForm">
+	<div>
+	  <label for="user_email">
+	    Email
+	  </label>
+	  <input type="text"
+		 name="email"
+		 data-target="signup-form.emailField">
+	  <p hidden data-target="signup-form.emailError">
+	    Please provide a valid email
+	  </p>
+	</div>
+	<div>
+	  <label for="password">
+	    Password
+	  </label>
+	  <input type="password"
+		 name="password"
+		 data-target="signup-form.passwordField">
+	  <p hidden data-target="signup-form.passwordError">
+	    Please provide a password
+	  </p>
+	</div>
+	<div>
+	  <label for="password_confirmation">
+	    Confirm Password
+	  </label>
+	  <input type="password"
+		 name="password_confirmation"
+		 data-target="signup-form.passwordConfirmationField">
+	  <p hidden data-target="signup-form.passwordConfirmationError">
+	    Passwords do not match
+	  </p>
+	</div>
+	<div>
+	  <input type="submit" value="Sign Up">
+	</div>
+      </form>
+    </div>
+  </body>
 </html>
