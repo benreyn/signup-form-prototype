@@ -11,19 +11,19 @@
       <form for="user"
 	    class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
 	    data-controller="signup-form"
-	    data-action="submit->signup-form#submitForm">
+	    data-action="signup-form#submitForm">
 	<div class="mb-4">
-	  <label for="user_email" class="block text-gray-700 text-sm font-bold mb-2">
+	  <label for="username" class="block text-gray-700 text-sm font-bold mb-2">
 	    Email
 	  </label>
 	  <input type="text"
-		 name="email"
+		 name="username"
 		 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-		 data-target="signup-form.emailField">
+		 data-target="signup-form.userNameField">
 	  <p hidden="true"
 	     class="text-red-500 text-xs italic"
-	     data-target="signup-form.emailError">
-	    Please provide a valid email
+	     data-target="signup-form.userNameError">
+	    Choose a username
 	  </p>
 	</div>
 	<div class="mb-4">
@@ -38,7 +38,7 @@
 	  <p hidden="true"
 	     class="text-red-500 text-xs italic"
 	     data-target="signup-form.passwordError">
-	    Please provide a password
+	    Choose a password
 	  </p>
 	</div>
 	<div class="mb-6">
@@ -49,11 +49,10 @@
 	  <input type="password"
 		 name="password_confirmation"
 		 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-		 data-target="signup-form.passwordConfirmationField">
-	  <p hidden="true"
-	     class="text-red-500 text-xs italic"
+		 data-target="signup-form.passwordConfirmationField"
+		 data-action="signup-form#validatePasswordConfirmation">
+	  <p class="text-xs italic"
 	     data-target="signup-form.passwordConfirmationError">
-	    Passwords do not match
 	  </p>
 	</div>
 	<div class="flex items-center justify-between">
