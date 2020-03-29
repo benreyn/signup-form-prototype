@@ -1,22 +1,65 @@
-# Stimulus Starter
+# Signup Form Prototype
 
-A preconfigured blank slate for exploring [Stimulus](https://github.com/stimulusjs/stimulus). Jump to [The Stimulus Handbook](https://stimulusjs.org/handbook/introduction) for an introduction.
+This prototype was built as a technical assessment for a front-end software developer role.
 
----
+## Requirements
 
-We recommend [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/import/git?url=https://github.com/stimulusjs/stimulus-starter.git) so you can work entirely in your browser without installing anything:
+1. Create a form with 3 input fields, for the username, password and confirm password respectively
 
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/git?url=https://github.com/stimulusjs/stimulus-starter.git)
+2. Persist the state of the input fields entries
 
-Or, if you'd prefer to work from the comfort of your own text editor, you'll need to clone and set up `stimulus-starter`:
+3. The password and confirm password input field should validate their entries by comparing both values
+
+4. Output to the user when both field match or dont match
+
+5. Bonus would be to style the form
+
+## Decisions
+
+The instructions requested to do the exercise in either React or Vanilla Javascript. I chose to use the Stimulus JS library for this exercise and started this repository from the [stimulus-starter](https://github.com/stimulusjs/stimulus-starter).
+
+While not _strictly_ Vanilla Javascript, Stimulus allowed me to build this prototype faster than sticking to strict VanillaJS and allowed me to organize my code slightly better. While it is really much more than what I've done with it here, Stimulus is extremely lightweight.
+
+The following data-attribute... 
+```html
+<div data-target="foo.bar"></div>
 
 ```
-$ git clone https://github.com/stimulusjs/stimulus-starter.git
-$ cd stimulus-starter
+is just syntactic sugar for...
+```js
+class FooController {
+  constructor() {
+    this.barTarget = document.querySelector("[data-target='foo.bar'"]
+  }
+}
+```
+
+Likewise...
+```html
+<button data-action="foo#bar"></div>
+
+```
+translates to...
+```js
+class FooController {
+  constructor() {
+    const el = document.querySelector("[data-action='foo#bar']"]
+	el.addEventListener("click", this.bar)
+  }
+  
+  bar() {
+	console.log("hello world")
+  }
+}
+```
+
+While this is a drastic over simplification of Stimulus, it will serve well enough for the purposes of this exercise. For the curious, the full documentation can be found [here](https://stimulusjs.org/).
+
+## Running locally
+
+```
+$ git clone https://github.com/benreyn/signup-form-prototype.git
+$ cd signup-form-prototype
 $ yarn install
 $ yarn start
 ```
-
----
-
-© 2019 Basecamp, LLC.
